@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest something for the Driftwood app
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Ideas for the **dedicated server package** belong on
+        [DriftwoodServer](https://github.com/HumanGenome/DriftwoodServer/issues).
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve
+      description: What you are trying to do today, and what makes it awkward.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like it to do
+    validations:
+      required: true

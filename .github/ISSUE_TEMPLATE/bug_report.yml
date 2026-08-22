@@ -1,0 +1,50 @@
+name: Bug report
+description: Something is broken in the Driftwood app, the installer, or these docs
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Bugs in the **dedicated server package** belong on
+        [DriftwoodServer](https://github.com/HumanGenome/DriftwoodServer/issues).
+        This repo is the Driftwood app players install.
+  - type: input
+    id: version
+    attributes:
+      label: Driftwood version
+      description: Shown in the app's footer.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: "Windows 11 24H2"
+    validations:
+      required: true
+  - type: dropdown
+    id: serverkind
+    attributes:
+      label: The server you were joining
+      options:
+        - One I run myself
+        - One I rent from a host
+        - Someone else's, I only have the address
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what happened, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: errortext
+    attributes:
+      label: Exact error text
+      description: >
+        Copy the message rather than describing it, and paste any relevant lines from the app's
+        log. Redact server addresses and anything else you would not post publicly.
+      render: text

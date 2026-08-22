@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/HumanGenome/Driftwood/security/advisories/new
+    about: Report privately, never as a public issue.
+  - name: Dedicated server package
+    url: https://github.com/HumanGenome/DriftwoodServer/issues
+    about: Bugs in the server hosts run belong on DriftwoodServer.
