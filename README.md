@@ -63,7 +63,7 @@ One server is a single game process with a small mod inside it and no renderer, 
 3. Open Driftwood, add the server address your host gave you, and click **Connect**. The app readies How to Fish and takes you in.
 
 ### Self-hosted servers
-The walkthrough is [DriftwoodServer's self-hosting guide](https://github.com/HumanGenome/DriftwoodServer/blob/master/docs/self-hosting.md). You will need a Windows machine, a copy of How to Fish's game files on it (from your own Steam copy; the server package ships no part of the game), and two open ports: the game port and the status port directly above it.
+The walkthrough is [DriftwoodServer's README](https://github.com/HumanGenome/DriftwoodServer#readme). You will need a Windows machine, a copy of How to Fish's game files on it (from your own Steam copy; the server package ships no part of the game), and two open ports: the game port and the status port directly above it.
 
 ## Releases
 
@@ -82,29 +82,6 @@ Driftwood is split into two public repos:
 - **[DriftwoodServer](https://github.com/HumanGenome/DriftwoodServer)**: the dedicated server package hosts run next to How to Fish's game files.
 
 Players only need this repo's releases; hosts run the server from DriftwoodServer's.
-
-## FAQ
-
-### Do all my friends need the app?
-Yes, and so do you. How to Fish cannot reach a Driftwood server without it. It installs once per person, and ordinary How to Fish co-op still works whenever you want it.
-
-### Do I need to leave my PC on?
-No. That is the entire point. Once the world is on a server, your machine has nothing to do with it.
-
-### Does this change my copy of How to Fish?
-No. You buy, run and update How to Fish through Steam as normal, and your ordinary single-player and co-op games are untouched.
-
-### Can I move a world between servers?
-Yes. World saves are ordinary files, so a host can copy one across.
-
-### What happens when How to Fish updates?
-The server checks the game build it is running against the build it was validated for, and says so rather than guessing. If an update moves something the server depends on, it refuses to host and names what moved. See **Refuses to run broken** above.
-
-### Is this an official How to Fish feature?
-No. Driftwood is an independent community project. Dazed Games does not ship dedicated servers for How to Fish, which is why this exists.
-
-### Where do I report a problem?
-[Open an issue](https://github.com/HumanGenome/Driftwood/issues). If you rent a managed server, your host handles billing and control-panel questions.
 
 ## Contributing
 
