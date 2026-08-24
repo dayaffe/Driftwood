@@ -63,7 +63,7 @@ One server is a single game process with a small mod inside it and no renderer, 
 3. Open Driftwood, add the server address your host gave you, and click **Connect**. The app readies How to Fish and takes you in.
 
 ### Self-hosted servers
-The walkthrough is [DriftwoodServer's self-hosting guide](https://github.com/HumanGenome/DriftwoodServer/blob/master/docs/self-hosting.md). You will need a Windows machine, a copy of How to Fish's game files on it (from your own Steam copy; the server package ships no part of the game), and an open port.
+The walkthrough is [DriftwoodServer's self-hosting guide](https://github.com/HumanGenome/DriftwoodServer/blob/master/docs/self-hosting.md). You will need a Windows machine, a copy of How to Fish's game files on it (from your own Steam copy; the server package ships no part of the game), and two open ports: the game port and the status port directly above it.
 
 ## Releases
 
