@@ -12,6 +12,52 @@
 
 Driftwood gives **How to Fish** always-on dedicated servers: players join through the Driftwood app, hosts run the Driftwood server package next to How to Fish's game files, and the world lives on the server instead of inside one person's game. No waiting for the host to come online, and nobody's PC doing the hosting.
 
+## Steam identity fix for current dedicated servers
+
+How to Fish 1.0.6 removed the SteamID64 from its direct-connect spawn request. DriftwoodServer
+0.1.7 has a pre-spawn identity endpoint, but the released Driftwood 0.1.3 client does not submit
+to it. Without the claim, reconnecting players appear as `Player-NNNN` and receive a temporary
+connection-slot character instead of their Steam-ID-keyed inventory.
+
+This fork adds `DriftwoodIdentity.dll`, a small BepInEx client companion. After FishNet assigns the
+connection ID and before the game's spawn coroutine can begin, it synchronously posts the local
+SteamID64 and persona name to the server's `/api/v1/identity` endpoint. The server can then select
+the correct existing character regardless of connection order.
+
+### Install the prebuilt fix
+
+Every player who joins the dedicated server installs the same DLL:
+
+1. Install Driftwood 0.1.3 normally and click **Connect** once so it installs BepInEx into How to Fish.
+2. Close How to Fish.
+3. Download `DriftwoodIdentity.dll` from this fork's latest release, or use the copy under
+   `identity-client/dist/` on the fix branch.
+4. In Steam, right-click **How to Fish** → **Manage** → **Browse local files**.
+5. Copy the DLL to `BepInEx\plugins\DriftwoodIdentity.dll`, beside `DriftwoodConnect.dll`.
+6. Start future sessions using Driftwood's **Connect** button.
+
+Check `BepInEx\LogOutput.log` after connecting. A successful install logs:
+
+```text
+Claimed Steam identity <steamid> for FishNet connection <id>.
+```
+
+The server roster should then show the Steam persona name rather than `Player-NNNN`, and existing
+Steam-ID-keyed inventory should load. Driftwood's normal Connect flow mirrors its bundled client
+files but does not delete additional plugins, so this companion remains installed.
+
+### Build it yourself
+
+The plugin compiles against the assemblies from your own How to Fish installation:
+
+```powershell
+dotnet test .\identity-client\tests\DriftwoodIdentity.Tests.csproj
+dotnet build .\identity-client\DriftwoodIdentity.csproj -c Release `
+  -p:GameRoot="C:\Program Files (x86)\Steam\steamapps\common\How to Fish"
+```
+
+The output is `identity-client\bin\Release\netstandard2.1\DriftwoodIdentity.dll`.
+
 Every player installs Driftwood to join a Driftwood server, the host included: How to Fish has no dedicated servers of its own, so the app is how anyone gets in. It installs once per person and takes a minute. Your copy of How to Fish is bought, launched and updated through Steam exactly as normal; Driftwood replaces nothing and ships no part of the game.
 
 <p align="center">
